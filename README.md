@@ -73,6 +73,7 @@ virsh net-autostart hostbridge
 ```
 
 **iptables considerations for hosts that also run Docker**
+
 Installing Docker enables netfilter for bridge interfaces on the host machine. This is needed because Docker creates and manages iptables rules to isolate bridge networks — the default Docker network type — from each other and allow them access to the network.
 
 These rules will, by default, break networking for your VMs. In my case I wanted all VMs to have access to the network as if they were real, physical machines; and to do this I added a single iptables rule on the host:
